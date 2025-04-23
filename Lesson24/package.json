@@ -1,0 +1,29 @@
+{
+  "name": "lesson24",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:headless": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:headed:chrome": "playwright test --headed --project=\"Google Chrome\"",
+    "test:headed:safari": "playwright test --headed --project=webkit",
+    "test:headed:chromium": "playwright test --headed --project=chromium"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@playwright/test": "^1.51.1",
+    "@stylistic/eslint-plugin-js": "^4.2.0",
+    "@types/node": "^22.14.1",
+    "eslint": "^9.25.1",
+    "eslint-plugin-cypress": "^4.3.0",
+    "eslint-plugin-playwright": "^2.2.0",
+    "globals": "^16.0.0"
+  }
+}
