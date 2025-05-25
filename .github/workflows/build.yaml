@@ -1,0 +1,39 @@
+name: Playwright Tests in Docker
+
+on:
+  push:
+    branches:
+      - Lesson31-PW
+  pull_request:
+    branches:
+      - Lesson31-PW
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    container:
+      image: mcr.microsoft.com/playwright:v1.51.1-jammy
+
+    env:
+      ENV: qauto
+      HOME: /root
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: Lesson31-PW
+
+      - name: Run Playwright tests
+        run: npx playwright test
+        working-directory: Lesson31-PW
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Main report
+          path: Lesson31-PW/playwright-report
